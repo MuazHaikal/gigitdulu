@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 7.6.4.1 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="00:00:00"/>
+	<style type="text/css">
+		@page { size: 8.27in 11.69in; margin: 0.79in }
+		p { line-height: 115%; margin-bottom: 0.1in; background: transparent }
+		pre { background: transparent }
+		pre.western { font-family: "Liberation Mono", monospace; font-size: 10pt }
+		pre.cjk { font-family: "NSimSun", monospace; font-size: 10pt }
+		pre.ctl { font-family: "Liberation Mono", monospace; font-size: 10pt }
+	</style>
+</head>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><pre class="western">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Tempahan Gigit Dulu&lt;/title&gt;
+  &lt;style&gt;
+    body {
+      font-family: Arial, sans-serif;
+      background: transparent;
+    }
+    .form-container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .submit-button {
+      margin-top: 20px;
+      padding: 10px;
+      width: 100%;
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .submit-button:hover {
+      background-color: #e60000;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class=&quot;form-container&quot;&gt;
+    &lt;form id=&quot;orderForm&quot; enctype=&quot;multipart/form-data&quot; method=&quot;POST&quot; action=&quot;https://script.google.com/macros/s/AKfycbxf60uKPQ5WJVZ6tUIEvVxQickKrk4cowoG0pAO_rECw1UGkmI60zqdJopzDz3teNAD/exec&quot;&gt;
+      &lt;div class=&quot;form-group&quot;&gt;
+        &lt;label for=&quot;nama&quot;&gt;Nama&lt;/label&gt;
+        &lt;input type=&quot;text&quot; name=&quot;nama&quot; id=&quot;nama&quot; required&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;form-group&quot;&gt;
+        &lt;label for=&quot;email&quot;&gt;Email&lt;/label&gt;
+        &lt;input type=&quot;email&quot; name=&quot;email&quot; id=&quot;email&quot; required&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;form-group&quot;&gt;
+        &lt;label for=&quot;telefon&quot;&gt;Nombor Telefon&lt;/label&gt;
+        &lt;input type=&quot;text&quot; name=&quot;telefon&quot; id=&quot;telefon&quot; required&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;form-group&quot;&gt;
+        &lt;label for=&quot;alamat&quot;&gt;Alamat&lt;/label&gt;
+        &lt;input type=&quot;text&quot; name=&quot;alamat&quot; id=&quot;alamat&quot; required&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;form-group&quot;&gt;
+        &lt;label for=&quot;creampuff&quot;&gt;Cream Puff (RM1.90/pcs)&lt;/label&gt;
+        &lt;input type=&quot;number&quot; id=&quot;creampuff&quot; name=&quot;creampuff&quot; value=&quot;0&quot; min=&quot;0&quot; oninput=&quot;kiraJumlah()&quot;&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;form-group&quot;&gt;
+        &lt;label for=&quot;cheesetart&quot;&gt;Cheesetart (RM2.50/pcs)&lt;/label&gt;
+        &lt;input type=&quot;number&quot; id=&quot;cheesetart&quot; name=&quot;cheesetart&quot; value=&quot;0&quot; min=&quot;0&quot; oninput=&quot;kiraJumlah()&quot;&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;form-group&quot;&gt;
+        &lt;label for=&quot;jumlah&quot;&gt;Jumlah Bayaran (RM)&lt;/label&gt;
+        &lt;input type=&quot;text&quot; id=&quot;jumlah&quot; name=&quot;jumlah&quot; readonly&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;form-group&quot;&gt;
+        &lt;label for=&quot;resit&quot;&gt;Resit Pembayaran&lt;/label&gt;
+        &lt;input type=&quot;file&quot; name=&quot;resit&quot; id=&quot;resit&quot; required&gt;
+      &lt;/div&gt;
+
+      &lt;button type=&quot;submit&quot; class=&quot;submit-button&quot;&gt;Hantar Tempahan&lt;/button&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+
+  &lt;script&gt;
+    function kiraJumlah() {
+      let creampuff = parseInt(document.getElementById('creampuff').value) || 0;
+      let cheesetart = parseInt(document.getElementById('cheesetart').value) || 0;
+      let total = (creampuff * 1.90) + (cheesetart * 2.50);
+      document.getElementById('jumlah').value = total.toFixed(2);
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</body>
+</html>
